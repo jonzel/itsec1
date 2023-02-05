@@ -1,6 +1,7 @@
 # IT Security
 
-## Basics:
+## Basics
+
 * Cryptology = Science of secure and confidential communication
 * Cryptography = Analysis and development of encryption 
 * Symmetric encryption = method of encryption where the same secret key is used for both encrypting and decrypting the data
@@ -15,7 +16,7 @@
 
 MD5, SHA-1, and SHA-2 are all examples of cryptographic hash functions that are widely used in various security applications.
 
-MD5 (Message-Digest algorithm 5) is a widely-used hash function that produces a 128-bit hash value. It was developed by Ron Rivest in 1991. It has been found to have collisions and should not be used in new systems.
+MD5 (Message-Digest algorithm 5) is a widely-used hash function that produces a 128-bit hash value. It was developed by Ron Rivest in 1991. Collisions have been discovered and it should not be used in new systems.
 
 SHA-1 (Secure Hash Algorithm 1) is another widely-used hash function that produces a 160-bit hash value. It was developed by the National Security Agency (NSA) in 1995. It has also been found to have collisions and should not be used in new systems.
 
@@ -24,9 +25,10 @@ SHA-2 is a set of cryptographic hash functions, including SHA-224, SHA-256, SHA-
 All these functions are based on the Merkle-Damgard structure and they are designed to be computationally infeasible to invert, break or find two inputs that lead to the same hash output, making them suitable for use in encryption and digital signatures.
 
 ### Merkle-Damgard structure
+
 The Merkle-Damgard structure is a common design paradigm used in constructing cryptographic hash functions, which involves repeatedly processing blocks of the input message through a compression function, along with an internal state, to produce a fixed-size output, or hash value. This structure helps to ensure that even small changes to the input message result in significant changes to the output hash, and that the hash value is determined by the entire input message.
 
-## Message Encryption Codes
+### Message Encryption Codes
 
 Message encryption codes are computed using a process called encryption algorithm, which takes plaintext (the original message) as input and applies a set of mathematical operations to it, along with a secret key, to produce ciphertext (the encrypted message). The encryption algorithm used can vary, but most commonly used encryption algorithms are symmetric-key algorithms such as AES and DES, and asymmetric-key algorithms such as RSA and Elliptic Curve Cryptography (ECC).
 
@@ -38,7 +40,7 @@ In RSA encryption, the plaintext is first converted into a number, and then it i
 
 Overall, encryption algorithms are designed to be computationally infeasible to invert, break or find the original message without the key, making it secure way of sending information.
 
-## MACs based on MDC
+### MACs based on MDC
 
 HMAC (Hash-based Message Authentication Code) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key. As opposed to a simple hash function, it uses a key to bind a hash value to the data being authenticated, to provide an additional layer of security.
 
@@ -119,6 +121,17 @@ It is important to note that using John the Ripper or any other password crackin
 
 A rainbow table is a precomputed table of hash values used to speed up the process of cracking password hashes. They are typically used to crack the hashes of weak or commonly-used passwords, as they allow an attacker to quickly look up the plaintext password corresponding to a given hash without having to perform a brute-force or dictionary attack. In order to generate a rainbow table, a large number of plaintext passwords are hashed and the resulting hash values are stored in a table, along with the corresponding plaintext passwords. When an attacker wants to crack a password, they can look up the hash in the rainbow table and find the corresponding plaintext password.
 
+Algorithm:
+
+1. Find the hashed value in the lookup table.  If you find it, go to step 2.  If not:  
+    a. Starting with the last reduction function (e.g., R2), "reduce" the      hashed value to get a new plaintext number. Every time you repeat      step 1, you go to the next lowest reduction function (e.g., R2,      then R1).  
+    b. Hash the new plaintext number and repeat step 1 from he beginning      with this new hash value.2. Take the plaintext value and hash it.3. Does that hash match the hash we have?   If so, stop. The value you just hashed is the value you're looking for.4. If not, apply the reduction function to get a new plaintext value, and   go back to step 2.
+2. Take the plaintext value and hash it.
+3. Does that hash match the hash we have? If so, stop. The value you just hashed is the value you're looking for.
+4. If not, apply the reduction function to get a new plaintext value, and go back to step 2.
+
+Further reading: <https://stichintime.wordpress.com/2009/04/09/rainbow-tables-part-1-introduction/>
+
 #### Attack Methods
 
 In a rainbow table attack, the attacker typically obtains the hash values from a data source that has been compromised, such as a database containing user account information. The attacker can then use the hash values from this data source to search the rainbow table for matches, and if a match is found, the corresponding plaintext password is revealed.
@@ -161,7 +174,8 @@ One common method is called electronic codebook (ECB) mode, in which the message
 
 Another method is called cipher block chaining (CBC) mode, in which the plaintext block is XORed with the previous ciphertext block before being encrypted. This creates a unique ciphertext for each plaintext block, even if they are identical. However, it requires an initialization vector (IV) to be used for the first block of plaintext, and the same IV must be used for decryption.
 
-## Cryptoanalysis
+### Cryptoanalysis
+
 Less important
 
 ## Ciphers
