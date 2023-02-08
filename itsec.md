@@ -626,5 +626,85 @@ Here's how heap spraying works:
 
 Heap spraying is a powerful technique for exploiting memory-related vulnerabilities, but it requires careful control over the memory layout and the payload data. Additionally, recent security enhancements, such as Data Execution Prevention (DEP) and Address Space Layout Randomization (ASLR), make it more difficult to execute heap-sprayed payloads and therefore provide mitigation against this type of attack.
 
+# Network Security in WLAN
 
+## Domain Name Service
 
+1. Hierarchical structure: DNS has a hierarchical structure, with a series of servers arranged in a tree-like structure. This structure helps to distribute the load of resolving domain names and ensures that resolution can be performed quickly and efficiently.
+2. Distributed database: DNS operates as a distributed database, with domain name information spread across multiple servers around the world. This ensures that domain name information is available and accessible from anywhere, even if one server is unavailable.
+3. Caching: DNS servers cache information about recently resolved domain names, so that they can respond to subsequent requests more quickly. This helps to reduce the latency of resolving domain names and reduces the load on the servers.
+4. Security: DNS is susceptible to security attacks, such as cache poisoning and man-in-the-middle attacks. To mitigate these threats, security extensions, such as DNSSEC, have been developed to secure the DNS infrastructure.
+5. Scalability: DNS must be able to handle a large number of domain name resolution requests, and must be able to scale to accommodate the growth of the Internet. To achieve this, DNS uses a distributed database and caching to ensure that resolution can be performed quickly and efficiently.
+
+### Root Server
+
+A root server in DNS is a server at the top of the hierarchical structure of the domain name system (DNS). Root servers are responsible for providing the starting point for resolving domain names into IP addresses. There are 13 root servers in the DNS system, each identified by a unique IP address, and they are maintained by organizations such as ICANN, Verisign, and the US military.
+
+When a client computer wants to resolve a domain name, it will first send a request to a local DNS resolver, which will then forward the request to one of the root servers. The root server will respond with a referral to the top-level domain (TLD) server, such as .com or .org, for the domain being requested. The TLD server will then provide a referral to the authoritative DNS server for the specific domain, which will provide the IP address of the server hosting the website or other Internet resource associated with that domain name.
+
+In summary, root servers play a crucial role in the functioning of the DNS system, providing the starting point for resolving domain names into IP addresses and directing clients to the appropriate TLD and authoritative DNS servers.
+
+### DNS Requests
+
+A DNS request works as follows:
+
+1. Client request: When a client computer wants to access a website or other Internet resource using a domain name, it sends a request to resolve the domain name into an IP address.
+2. Local DNS resolver: The client's request is first sent to its local DNS resolver, which is usually provided by the client's Internet service provider (ISP).
+3. Root server: If the local DNS resolver does not have the information cached from a previous request, it will forward the request to one of the root servers.
+4. TLD server: The root server will respond with a referral to the top-level domain (TLD) server, such as .com or .org, for the domain being requested.
+5. Authoritative DNS server: The TLD server will then provide a referral to the authoritative DNS server for the specific domain, which is responsible for maintaining the mapping of the domain name to its associated IP address.
+6. IP address resolution: The authoritative DNS server will respond with the IP address of the server hosting the website or other Internet resource associated with the domain name.
+7. Caching: The local DNS resolver and any intermediate DNS servers involved in resolving the domain name will cache the result for a certain period of time, known as the Time-To-Live (TTL), to respond more quickly to subsequent requests for the same domain name.
+
+In summary, a DNS request works by sending a request from a client computer to a local DNS resolver, which forwards the request to a series of DNS servers in a hierarchical structure until the IP address of the desired domain name is found and returned to the client.
+
+### DNS Spoofing
+
+DNS spoofing, also known as DNS cache poisoning, is a type of cyber attack in which an attacker alters the information stored in a DNS resolver's cache, causing it to map a domain name to an incorrect IP address. This can be done in order to redirect users to a malicious website or to steal sensitive information, among other malicious purposes.
+
+Here is a high-level overview of how DNS spoofing works:
+
+1. Exploiting vulnerabilities: The attacker first identifies a vulnerability in the target DNS resolver, such as a lack of security measures or outdated software.
+2. Sending forged DNS responses: The attacker sends a large number of forged DNS responses to the target DNS resolver, claiming to be the authoritative DNS server for a specific domain. These responses contain incorrect mapping information, such as mapping a well-known domain name to the IP address of a malicious server.
+3. Overwriting cached information: If the target DNS resolver does not validate the authenticity of the incoming DNS responses, it will overwrite its cached information with the incorrect mapping information provided by the attacker.
+4. Redirecting users: When a client computer sends a request to the target DNS resolver for the domain name, the resolver will return the incorrect IP address provided by the attacker, causing the client to be redirected to the attacker's malicious server.
+
+In summary, DNS spoofing works by exploiting vulnerabilities in DNS resolvers and sending large numbers of forged DNS responses that overwrite the resolvers' cached information with incorrect mapping information, causing clients to be redirected to malicious servers. It is important to use secure DNS resolvers and keep them updated in order to protect against DNS spoofing attacks.
+
+### DNS Spoofing Kaminsky
+
+The Kaminsky attack is a type of DNS cache poisoning attack named after its discoverer, security researcher Dan Kaminsky. It exploits a vulnerability in the way that DNS resolvers handle multiple responses to the same query, causing them to cache incorrect information and potentially redirect users to malicious websites.
+
+Here is a high-level overview of how the Kaminsky attack works:
+
+1. Sending a query: The attacker first sends a query to a target DNS resolver for a specific domain name.
+2. Forging responses: The attacker then sends a large number of forged responses to the target DNS resolver, claiming to be the authoritative DNS server for the same domain name. These responses contain incorrect mapping information, such as mapping a well-known domain name to the IP address of a malicious server.
+3. Overwriting cached information: The target DNS resolver, due to the way it was designed to handle multiple responses to the same query, may cache the incorrect mapping information provided by the attacker.
+4. Redirecting users: When a client computer sends a request to the target DNS resolver for the domain name, the resolver will return the incorrect IP address provided by the attacker, causing the client to be redirected to the attacker's malicious server.
+
+In summary, the Kaminsky attack works by exploiting a vulnerability in the way that DNS resolvers handle multiple responses to the same query and sending large numbers of forged DNS responses that overwrite the resolvers' cached information with incorrect mapping information, causing clients to be redirected to malicious servers. It is important to use secure DNS resolvers and keep them updated in order to protect against Kaminsky attacks and other types of DNS cache poisoning attacks.
+
+### ARP Cache Poisoning
+
+ARP cache poisoning, also known as ARP spoofing, is a type of cyber attack in which an attacker alters the mapping between IP addresses and Media Access Control (MAC) addresses in the ARP cache of a target device. This can be done in order to intercept network traffic, steal sensitive information, or launch further attacks, among other malicious purposes.
+
+Here is a high-level overview of how ARP cache poisoning works:
+
+1. Sending ARP broadcasts: The attacker sends ARP broadcasts to the target device and other devices on the network, claiming to be the owner of a specific IP address. These broadcasts contain incorrect mapping information, such as mapping the attacker's MAC address to the IP address of a target device.
+2. Overwriting cached information: If the target device and other devices on the network do not validate the authenticity of the incoming ARP broadcasts, they will overwrite their ARP cache information with the incorrect mapping information provided by the attacker.
+3. Interception of network traffic: Once the ARP cache information has been overwritten, the attacker can intercept all network traffic destined for the IP address of the target device, as it will be directed to the attacker's MAC address instead.
+4. Man-in-the-middle attack: The attacker can then act as a man-in-the-middle, forwarding network traffic between the target device and the rest of the network, potentially stealing sensitive information or launching further attacks.
+
+In summary, ARP cache poisoning works by sending ARP broadcasts that overwrite the mapping information in the ARP caches of target devices and other devices on the network, causing network traffic to be redirected to the attacker's device. It is important to use secure ARP protocols and to implement ARP cache validation measures in order to protect against ARP cache poisoning attacks.
+
+### Safety Measures against DNS Spoofing
+
+Here are some safety measures that can help protect against DNS spoofing attacks:
+
+1. Use DNSSEC: DNSSEC (Domain Name System Security Extensions) is a security extension to DNS that provides origin authentication and integrity protection for DNS data. DNSSEC can help prevent DNS spoofing by digitally signing DNS records and allowing resolvers to verify their authenticity.
+2. Implement BIND views: BIND (Berkeley Internet Name Domain) views can be used to create separate zones for different parts of your network, allowing you to apply different security policies to each zone. This can help prevent DNS spoofing by restricting the access of untrusted networks to your authoritative DNS servers.
+3. Use secure DNS resolvers: Secure DNS resolvers, such as Google Public DNS and Cloudflare's 1.1.1.1, are designed to provide enhanced security and privacy for DNS queries. They can help prevent DNS spoofing by filtering out malicious DNS responses and caching only valid responses.
+4. Enable TCP-based DNS queries: DNS queries that use the TCP protocol are more secure than those that use the UDP protocol, as they are less susceptible to spoofing and tampering. By enabling TCP-based DNS queries, you can help protect against DNS spoofing.
+5. Monitor network activity: Regularly monitoring network activity for signs of DNS spoofing can help you detect and respond to such attacks before they cause significant damage. Tools such as intrusion detection systems (IDS) and security information and event management (SIEM) systems can help you monitor network activity and detect signs of DNS spoofing.
+
+In summary, there are various safety measures that can be taken to protect against DNS spoofing attacks, including using DNSSEC, implementing BIND views, using secure DNS resolvers, enabling TCP-based DNS queries, and monitoring network activity. By implementing these measures, you can help protect your network from DNS spoofing and other cyber attacks.
