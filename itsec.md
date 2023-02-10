@@ -12,7 +12,9 @@
 * One-way function = function that is easy to compute but not easy to reverse
 * Trapdoor one way function = One way function that lets you compute the reverse with additional data
 
-## MD5, SHA-1 and SHA-2 family
+## Cryptography Methods I
+
+### MD5, SHA-1 and SHA-2 family
 
 MD5, SHA-1, and SHA-2 are all examples of cryptographic hash functions that are widely used in various security applications.
 
@@ -24,11 +26,11 @@ SHA-2 is a set of cryptographic hash functions, including SHA-224, SHA-256, SHA-
 
 All these functions are based on the Merkle-Damgard structure and they are designed to be computationally infeasible to invert, break or find two inputs that lead to the same hash output, making them suitable for use in encryption and digital signatures.
 
-### Merkle-Damgard structure
+#### Merkle-Damgard structure
 
 The Merkle-Damgard structure is a common design paradigm used in constructing cryptographic hash functions, which involves repeatedly processing blocks of the input message through a compression function, along with an internal state, to produce a fixed-size output, or hash value. This structure helps to ensure that even small changes to the input message result in significant changes to the output hash, and that the hash value is determined by the entire input message.
 
-### Message Encryption Codes
+#### Message Encryption Codes
 
 Message encryption codes are computed using a process called encryption algorithm, which takes plaintext (the original message) as input and applies a set of mathematical operations to it, along with a secret key, to produce ciphertext (the encrypted message). The encryption algorithm used can vary, but most commonly used encryption algorithms are symmetric-key algorithms such as AES and DES, and asymmetric-key algorithms such as RSA and Elliptic Curve Cryptography (ECC).
 
@@ -40,7 +42,7 @@ In RSA encryption, the plaintext is first converted into a number, and then it i
 
 Overall, encryption algorithms are designed to be computationally infeasible to invert, break or find the original message without the key, making it secure way of sending information.
 
-### MACs based on MDC
+#### MACs based on MDC
 
 HMAC (Hash-based Message Authentication Code) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key. As opposed to a simple hash function, it uses a key to bind a hash value to the data being authenticated, to provide an additional layer of security.
 
@@ -51,7 +53,7 @@ The HMAC process involves two steps:
 
 The keyed hash value is then sent along with the message, and the recipient uses the same key to recreate the hash on their end and compare it to the one received. If they match, the recipient can be sure that the message has not been tampered with, and that it was indeed sent by the claimed sender.
 
-## Password Storage
+### Password Storage
 
 Password storage in a computer typically involves a combination of techniques such as salting, hashing, and peppering to protect the passwords and make them more difficult for an attacker to crack.
 
@@ -65,7 +67,7 @@ It is important to note that the stored passwords should be protected from unaut
 
 Additionally, to further protect the password, many systems also use techniques like password stretching, using bcrypt, scrypt or Argon2 for hashing the password, which are designed to make cracking the password more computationally expensive.
 
-### Salting
+#### Salting
 
 Password encryption with salt works by adding an additional random string of characters, called a "salt," to the password before it is hashed. The salt is then stored in the system along with the hashed password, and is used to verify the password during the authentication process.
 
@@ -77,7 +79,7 @@ If two users have the same password, the resulting hash will be different for th
 
 It also makes it more difficult for an attacker who has obtained a password hash to use it to authenticate as the user, because the salt is unique for each user and it's not stored with the password.
 
-### Peppering
+#### Peppering
 
 Password encryption with peppering, also known as "key stretching," works by adding an additional random string of characters, called a "pepper," to the password before it is hashed. The pepper is a secret value that is stored separately from the hashed password and salt, and is used to increase the computational effort required to crack the password.
 
@@ -89,7 +91,7 @@ The pepper is typically stored in a separate location from the hashed passwords,
 
 It is important to note that peppering alone is not sufficient for password security and should be used in combination with salted password encryption and other security measures such as limiting login attempts and use of multi-factor authentication.
 
-### Password storage on linux systems
+#### Password storage on linux systems
 
 On Linux systems, password storage is typically handled by the operating system's built-in password management utilities, such as the "shadow" password system.
 
@@ -103,7 +105,7 @@ In addition, Linux systems use PAM (Pluggable Authentication Modules) to authent
 
 It is important to note that the stored passwords should be protected from unauthorized access, so the password database should be protected with appropriate access controls, and the system should be configured to use secure protocols for transmission and storage of the passwords.
 
-### Password Cracking with John the Ripper
+#### Password Cracking with John the Ripper
 
 John the Ripper is a popular open-source password cracking tool that is used to recover lost or forgotten passwords. It can be used to crack various types of passwords, including those used to protect Linux and Windows user accounts, as well as passwords for various other types of files and systems.
 
@@ -117,7 +119,7 @@ The basic process of using John the Ripper to crack a password involves the foll
 
 It is important to note that using John the Ripper or any other password cracking tool to gain unauthorized access to a system or file is illegal in many jurisdictions. Additionally, cracking password is a very computational expensive task and can take a long time, depending on the strength of the password and the resources available to the attacker.
 
-### Rainbow Table
+#### Rainbow Table
 
 A rainbow table is a precomputed table of hash values used to speed up the process of cracking password hashes. They are typically used to crack the hashes of weak or commonly-used passwords, as they allow an attacker to quickly look up the plaintext password corresponding to a given hash without having to perform a brute-force or dictionary attack. In order to generate a rainbow table, a large number of plaintext passwords are hashed and the resulting hash values are stored in a table, along with the corresponding plaintext passwords. When an attacker wants to crack a password, they can look up the hash in the rainbow table and find the corresponding plaintext password.
 
@@ -166,7 +168,7 @@ One of the key features of hashcat is its support for GPU acceleration, which al
 
 Hashcat also supports distributed cracking, which allows multiple computers to work together to crack a single password hash, further speeding up the process. Additionally, it also provides a library that can be integrated into other tools for password cracking and it's available for Windows, Linux and MacOS.
 
-## Symmertric cryptography methods
+### Symmertric cryptography methods
 
 When a message is longer than the block size of a cipher, it must be divided into smaller blocks, called blocks, in order to be encrypted. There are several ways to do this, each with their own advantages and disadvantages.
 
@@ -174,13 +176,19 @@ One common method is called electronic codebook (ECB) mode, in which the message
 
 Another method is called cipher block chaining (CBC) mode, in which the plaintext block is XORed with the previous ciphertext block before being encrypted. This creates a unique ciphertext for each plaintext block, even if they are identical. However, it requires an initialization vector (IV) to be used for the first block of plaintext, and the same IV must be used for decryption.
 
+#### DES
+
+#### AES
+
 ### Cryptoanalysis
 
 Less important
 
-## Ciphers
+## cryptography Methods II
 
-### RSA
+### Ciphers
+
+#### RSA
 
 RSA is a widely used public-key cryptosystem that is based on the mathematical properties of large prime numbers. The RSA algorithm uses two large prime numbers, a public key and a private key, to perform encryption and decryption.
 
@@ -201,7 +209,7 @@ The key size used in RSA determines the security level and the computational tim
 
 It is important to note that the private key must be kept secret and must not be shared with anyone. If the private key is compromised, an attacker can use it to decrypt any message that has been encrypted with the corresponding public key.
 
-### Key Generation
+#### Key Generation
 
 The key generation process in RSA works as follows:
 
@@ -216,9 +224,9 @@ It is important to note that the security of the RSA algorithm is based on the d
 
 Additionally, it's recommended to use a cryptographically secure random number generator to generate the prime numbers and the private exponent, in order to prevent any potential attack based on weak primes or private exponents.
 
-### RSA Attacks
+#### RSA Attacks
 
-#### Brute Force Attack
+##### Brute Force Attack
 
 A brute force attack on RSA encryption is a type of attack that tries every possible private key until the correct one is found. This can be done by guessing the private key, d, and then using it to decrypt the ciphertext. The attacker will have the public key (n, e) and the ciphertext, but they do not have the private key d. The goal of the attack is to find the private key by trying every possible value.
 
@@ -226,7 +234,7 @@ However, a brute force attack on RSA encryption is computationally infeasible, a
 
 It's important to note that RSA key size should be chosen based on the desired level of security and the expected lifetime of the key. As technology and computational power advance, the recommended key size for RSA also increases.
 
-#### Chosen Cyphertext Attack
+##### Chosen Cyphertext Attack
 
 A chosen ciphertext attack (CCA) on RSA is a type of attack where an attacker has access to a public encryption oracle, which they can use to encrypt any plaintext they choose, and they can also obtain the corresponding ciphertext. The goal of the attack is to obtain the private key or information about the plaintext without having access to the private key.
 
@@ -238,7 +246,7 @@ It's important to note that RSA is vulnerable to CCA when it is used in certain 
 
 It's also important to mention that there are countermeasures to prevent CCA like using padding schemes such as OAEP (Optimal Asymmetric Encryption Padding) or RSA-KEM (Key Encapsulation Mechanism) which will make the encryption randomized and less predictable for the attacker.
 
-#### Timing Attacks
+##### Timing Attacks
 
 A timing attack on RSA is a type of side-channel attack that is based on measuring the time it takes for the encryption or decryption process to complete. The goal of the attack is to infer information about the private key or the plaintext without having access to the private key.
 
@@ -250,7 +258,7 @@ To prevent timing attacks, one can use constant-time implementations of RSA, whi
 
 It's also important to use a defense-in-depth approach, which includes physical security measures, and secure coding practices to prevent an attacker from measuring the time it takes for the encryption or decryption process to complete.
 
-### Diffie-Hellman
+#### Diffie-Hellman
 
 The Diffie-Hellman (DH) method is a method for securely exchanging keys over a public communication channel. It allows two parties, who have no prior knowledge of each other, to jointly establish a shared secret key that can be used for subsequent encryption and decryption.
 
@@ -265,9 +273,10 @@ The method works as follows:
 
 The security of the Diffie-Hellman method is based on the difficulty
 
-## Electronic Signatures
+#### Electronic Signatures
 
 Properties:
+
 * Idenfication/liability
 * Authenticity
 * Signature
@@ -277,7 +286,7 @@ Properties:
 
 Electronic signatures, also known as digital signatures, are a way to ensure the authenticity and integrity of electronic documents and messages. They work by using a combination of encryption and hashing algorithms to create a unique signature that can be used to verify the identity of the signer and ensure that the document has not been tampered with.
 
-### Digitial Certificates
+##### Digitial Certificates
 
 Digital certificates are a way to bind a public key to an identity, such as an individual or an organization, and provide a way to verify the authenticity of the public key. They are used to establish trust between parties in a digital communication, such as a website or an email.
 
@@ -292,11 +301,11 @@ The process of creating a digital certificate typically involves the following s
 
 Digital certificates are a key component in the public key infrastructure (PKI) which ensures the authenticity of public keys and enables secure communication over the internet. It's important to note that digital certificates have a validity period and should be renewed before it expires.
 
-#### Public Key Infrastructure
+##### Public Key Infrastructure
 
-Public Key Infrastructure (PKI) is a framework that enables the use of digital certificates and digital signatures for secure communication over a network, such as the internet. It provides a way to verify the authenticity of digital certificates and the identity of the certificate holder.
+Public Key Infrastructure (PKI) is a framework that enables the use of digital certificates and digital signatures for secure communication over a network. It provides a way to verify the authenticity of digital certificates and the identity of the certificate holder.
 
-In the context of digital signatures, PKI works as follows:
+PKI works as follows:
 
 1. The certificate holder generates a public-private key pair, and then submits a certificate signing request (CSR) along with their public key to a certificate authority (CA). The CSR contains information about the certificate holder, such as their name, address, and domain name.
 2. The CA verifies the identity of the certificate holder, through various means such as phone, email, or document verification.
@@ -307,7 +316,7 @@ In the context of digital signatures, PKI works as follows:
 
 PKI provides a secure and reliable way to establish trust and verify the authenticity of digital signatures in electronic communication, and it's widely used in different industries like e-commerce, healthcare, and government.
 
-#### Client-Side Certificate Validation
+##### Client-Side Certificate Validation
 
 Client-side certificate validation is a process that enables a client, such as a web browser, to verify the authenticity of a digital certificate presented by a server, such as a website. It is a crucial step in the establishment of a secure connection between the client and the server, such as HTTPS.
 
@@ -320,7 +329,7 @@ Client-side certificate validation is a process that enables a client, such as a
 
 It's important to note that client-side certificate validation is only one part of the overall security of a connection, and it should be combined with other security measures, such as server-side validation, secure coding practices, and security protocols like SSL/TLS.
 
-#### Attacks on Digitial Certificates
+##### Attacks on Digitial Certificates
 
 There are several theoretical attacks on digital certificates that could potentially be used to bypass the security provided by the certificate validation process. Some of the most notable attacks include:
 
@@ -334,7 +343,7 @@ Certificate Spoofing: In this attack, an attacker creates a fake certificate and
 
 These types of attacks demonstrate the importance of the security of the certificate validation process, and the need for organizations to ensure that their digital certificates are properly protected, and to keep their systems and software updated to prevent vulnerabilities from being exploited.
 
-### Hybrid Methods
+##### Hybrid Methods
 
 ## Authentification
 
@@ -350,7 +359,9 @@ There are several common methods of authentication that are used in IT security,
 
 Authentication is a crucial aspect of IT security as it is the first line of defense against unauthorized access to sensitive information and resources. It is important to use strong and reliable authentication methods, and to keep them updated, to ensure that only authorized entities have access to the system and data.
 
-### Challenge-Response Method
+### Methods
+
+#### Challenge-Response Method
 
 The challenge-response method of authentication is a form of two-factor authentication that combines something the user knows (a password or PIN) with something the user has (a token or smart card). The goal of this method is to ensure that the person attempting to gain access to a system or resource is actually the person they claim to be.
 
@@ -368,7 +379,7 @@ The challenge-response method is considered more secure than traditional passwor
 
 Challenge-response method can also be used as a single-factor authentication, as an example, it can be used to identify user's by their fingerprints, face recognition, voice recognition. In this case, the system would send a challenge to the user and the user would respond by providing their biometric information. The system would then compare the received information to the previously stored biometric information and if they match, the user's identity would be verified.
 
-### S/Key Method
+#### S/Key Method
 
 The S/Key method, also known as One-Time Password (OTP) method, is a form of two-factor authentication that provides an additional layer of security for remote authentication by using a unique password that is only valid for a single login session.
 
@@ -384,8 +395,7 @@ Here's how the S/Key method works:
 
 The S/Key method provides added security because even if an attacker intercepts the OTP, they will not be able to use it again as it is only valid for a single login session. Additionally, the OTPs are generated based on the secret seed and the previous OTP, so even if an attacker obtains one of the OTPs, they will not be able to generate future OTPs without knowing the secret seed.
 
-
-### Kerberos
+#### Kerberos
 
 Kerberos is a widely-used network authentication protocol that provides secure communication between clients and servers over an insecure network, such as the Internet. The main goal of Kerberos is to securely verify the identity of clients and servers to each other and to allow them to securely exchange information.
 
@@ -401,7 +411,7 @@ Here's how the Kerberos architecture works:
 
 In this way, Kerberos provides a secure and efficient method for authentication and encryption of network communication, without requiring the client and server to have a pre-existing relationship or to exchange secret keys.
 
-### Shiboleth
+#### Shiboleth
 
 Shibboleth is an open-source identity provider (IdP) and single sign-on (SSO) system that provides secure access to web-based resources. It is commonly used in academic and research environments to allow users to access resources across different organizations and domains with a single set of credentials.
 
@@ -417,7 +427,7 @@ Here's how the Shibboleth architecture works:
 
 In this way, Shibboleth provides a secure and flexible method for managing access to web-based resources, while reducing the need for multiple sets of credentials and simplifying the process for users. The security of the system is maintained through the use of digital signatures and secure communication between the IdP and the SP.
 
-### OAuth 2.0
+#### OAuth 2.0
 
 OAuth 2.0 is an open-standard for authorization that enables third-party applications to obtain limited access to a user's protected resources, such as their data stored on another website, without having to reveal their credentials.
 
@@ -432,6 +442,8 @@ Here's how OAuth 2.0 works:
 7. The resource server verifies the access token and, if it is valid, returns the requested resources to the third-party application.
 
 In this way, OAuth 2.0 enables users to grant access to their protected resources to third-party applications without having to reveal their credentials. The security of the system is maintained through the use of secure communication and digital signatures, and the access token can be revoked at any time by the user if they no longer want the third-party application to have access to their resources.
+
+### Biometric Authentification
 
 ## Network safety in LAN systems
 
@@ -484,7 +496,6 @@ The TCP/IP reference model provides a standard set of protocols for transmitting
 
 ### Network Protocol Layer
 
-
 ### Network Components
 
 * Broadcast Domain
@@ -498,7 +509,7 @@ The TCP/IP reference model provides a standard set of protocols for transmitting
 ### Layer 2 Communication
 
 * Tasks: Handling packages from intermediate layer, error detection in bittransfer with checksums, providing MAC adresses 
-* Switches: Handling MAC adress tables, package tranfer to posts from table (or all), forwarding by store-and-forward, spanning tree protocol to prevent graph cycles 
+* Switches: Handling MAC adress tables, package tranfer to posts from table (or all), forwarding by store-and-forward, spanning tree protocol to prevent graph cycles
 * Virtual Local Area Network
 * Adress-Resolution Protocol
 * ARP-Spoofing, ARP Cache Poisoning
@@ -626,9 +637,9 @@ Here's how heap spraying works:
 
 Heap spraying is a powerful technique for exploiting memory-related vulnerabilities, but it requires careful control over the memory layout and the payload data. Additionally, recent security enhancements, such as Data Execution Prevention (DEP) and Address Space Layout Randomization (ASLR), make it more difficult to execute heap-sprayed payloads and therefore provide mitigation against this type of attack.
 
-# Network Security in WLAN
+## Network Security in WLAN
 
-## Domain Name Service
+### Domain Name Service
 
 1. Hierarchical structure: DNS has a hierarchical structure, with a series of servers arranged in a tree-like structure. This structure helps to distribute the load of resolving domain names and ensures that resolution can be performed quickly and efficiently.
 2. Distributed database: DNS operates as a distributed database, with domain name information spread across multiple servers around the world. This ensures that domain name information is available and accessible from anywhere, even if one server is unavailable.
@@ -636,7 +647,7 @@ Heap spraying is a powerful technique for exploiting memory-related vulnerabilit
 4. Security: DNS is susceptible to security attacks, such as cache poisoning and man-in-the-middle attacks. To mitigate these threats, security extensions, such as DNSSEC, have been developed to secure the DNS infrastructure.
 5. Scalability: DNS must be able to handle a large number of domain name resolution requests, and must be able to scale to accommodate the growth of the Internet. To achieve this, DNS uses a distributed database and caching to ensure that resolution can be performed quickly and efficiently.
 
-### Root Server
+#### Root Server
 
 A root server in DNS is a server at the top of the hierarchical structure of the domain name system (DNS). Root servers are responsible for providing the starting point for resolving domain names into IP addresses. There are 13 root servers in the DNS system, each identified by a unique IP address, and they are maintained by organizations such as ICANN, Verisign, and the US military.
 
@@ -644,7 +655,7 @@ When a client computer wants to resolve a domain name, it will first send a requ
 
 In summary, root servers play a crucial role in the functioning of the DNS system, providing the starting point for resolving domain names into IP addresses and directing clients to the appropriate TLD and authoritative DNS servers.
 
-### DNS Requests
+#### DNS Requests
 
 A DNS request works as follows:
 
@@ -658,7 +669,7 @@ A DNS request works as follows:
 
 In summary, a DNS request works by sending a request from a client computer to a local DNS resolver, which forwards the request to a series of DNS servers in a hierarchical structure until the IP address of the desired domain name is found and returned to the client.
 
-### DNS Spoofing
+#### DNS Spoofing
 
 DNS spoofing, also known as DNS cache poisoning, is a type of cyber attack in which an attacker alters the information stored in a DNS resolver's cache, causing it to map a domain name to an incorrect IP address. This can be done in order to redirect users to a malicious website or to steal sensitive information, among other malicious purposes.
 
@@ -671,7 +682,7 @@ Here is a high-level overview of how DNS spoofing works:
 
 In summary, DNS spoofing works by exploiting vulnerabilities in DNS resolvers and sending large numbers of forged DNS responses that overwrite the resolvers' cached information with incorrect mapping information, causing clients to be redirected to malicious servers. It is important to use secure DNS resolvers and keep them updated in order to protect against DNS spoofing attacks.
 
-### DNS Spoofing Kaminsky
+#### DNS Spoofing Kaminsky
 
 The Kaminsky attack is a type of DNS cache poisoning attack named after its discoverer, security researcher Dan Kaminsky. It exploits a vulnerability in the way that DNS resolvers handle multiple responses to the same query, causing them to cache incorrect information and potentially redirect users to malicious websites.
 
@@ -684,7 +695,7 @@ Here is a high-level overview of how the Kaminsky attack works:
 
 In summary, the Kaminsky attack works by exploiting a vulnerability in the way that DNS resolvers handle multiple responses to the same query and sending large numbers of forged DNS responses that overwrite the resolvers' cached information with incorrect mapping information, causing clients to be redirected to malicious servers. It is important to use secure DNS resolvers and keep them updated in order to protect against Kaminsky attacks and other types of DNS cache poisoning attacks.
 
-### ARP Cache Poisoning
+#### ARP Cache Poisoning
 
 ARP cache poisoning, also known as ARP spoofing, is a type of cyber attack in which an attacker alters the mapping between IP addresses and Media Access Control (MAC) addresses in the ARP cache of a target device. This can be done in order to intercept network traffic, steal sensitive information, or launch further attacks, among other malicious purposes.
 
@@ -697,7 +708,7 @@ Here is a high-level overview of how ARP cache poisoning works:
 
 In summary, ARP cache poisoning works by sending ARP broadcasts that overwrite the mapping information in the ARP caches of target devices and other devices on the network, causing network traffic to be redirected to the attacker's device. It is important to use secure ARP protocols and to implement ARP cache validation measures in order to protect against ARP cache poisoning attacks.
 
-### Safety Measures against DNS Spoofing
+#### Safety Measures against DNS Spoofing
 
 Here are some safety measures that can help protect against DNS spoofing attacks:
 
