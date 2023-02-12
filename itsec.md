@@ -3,7 +3,7 @@
 ## Basics
 
 * Cryptology = Science of secure and confidential communication
-* Cryptography = Analysis and development of encryption 
+* Cryptography = Analysis and development of encryption  
 * Symmetric encryption = method of encryption where the same secret key is used for both encrypting and decrypting the data
 * Asymmetric encryption = method of encryption where a pair of a public key and a private key is used, with the public key used for encrypting and the private key used for decrypting the data.
 * Modification Detection Code (MDC) = is the result of a method of detecting unauthorized changes in a message or data by including a short piece of data, typically a hash or checksum, that is derived from the original data and can be used to verify its integrity.
@@ -707,6 +707,8 @@ Here is a high-level overview of how ARP cache poisoning works:
 4. Man-in-the-middle attack: The attacker can then act as a man-in-the-middle, forwarding network traffic between the target device and the rest of the network, potentially stealing sensitive information or launching further attacks.
 
 In summary, ARP cache poisoning works by sending ARP broadcasts that overwrite the mapping information in the ARP caches of target devices and other devices on the network, causing network traffic to be redirected to the attacker's device. It is important to use secure ARP protocols and to implement ARP cache validation measures in order to protect against ARP cache poisoning attacks.
+
+Further reading: <https://toschprod.wordpress.com/2011/11/06/man-in-the-middle-intro/>
 
 #### Safety Measures against DNS Spoofing
 
