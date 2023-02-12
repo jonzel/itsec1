@@ -2,17 +2,17 @@
 
 ## Was sind die Grundziele der Informationssicherheit?
 
-* Confidentiality (Vertraulichkeit): Vertraulichkeit ist der Schutz vor unbefugter Preisgabe von Informationen. Vertraulichen Daten und Informationen duerfen ausschliesslichen Befugten in der zulaessigen Weise zugaenglich sein. 
-* Integrity (Integritaet): Sicherstellung der Unversehrtheit/Korrektheit der Information
-* Availablity (Verfuegbarkeit): Dienste oder Daten gelten als verfuegbar, wenn diese stets wie vorgesehen bereitgestellt werden koennen.
+* Confidentiality (Vertraulichkeit): Vertraulichkeit ist der Schutz vor unbefugter Preisgabe von Informationen. Vertraulichen Daten und Informationen dürfen ausschließlichen Befugten in der zulässigen Weise zugänglich sein. 
+* Integrity (Integrität): Sicherstellung der Unversehrtheit/Korrektheit der Information
+* Availablity (Verfügbarkeit): Dienste oder Daten gelten als verfügbar, wenn diese stets wie vorgesehen bereitgestellt werden koennen.
 
 ## Was sind symmetrische krypographisches Algorithmen?
 
-Transformation von Eingabedaten durch einen spezifischen Algorithmus, der zum Ver-/Entschluesseln den gleichen Schluessel benutzt
+Transformation von Eingabedaten durch einen spezifischen Algorithmus, der zum Ver-/Entschlüsseln den gleichen Schlüssel benutzt
 
 ## Was sind asymmetrische krypographisches Algorithmen?
 
-Transformation von Eingabedaten durch einen spezifischen Algorithmus, der zum Ver-/Entschluesseln zwei verschiedene Schluessel benutzt
+Transformation von Eingabedaten durch einen spezifischen Algorithmus, der zum Ver-/Entschlüsseln zwei verschiedene Schlüssel benutzt
 
 ## Was sind Modifikationsekennungswerte?
 
@@ -20,7 +20,7 @@ Modification Detection Codes (MDC) sind der kryptographische Fingerabdruck einer
 
 ## Was sind Nachrichtenauthentisierungswerte?
 
-Message Authentification Codes (MAC) ermoeglichen zusaetzlich die Verifikation der Authentizitaet einer Nachricht`
+Message Authentification Codes (MAC) ermoeglichen zusätzlich die Verifikation der Authentizität einer Nachricht`
 
 ## Was ist der Unterschied zwischen MDCs und MACs?
 
@@ -31,8 +31,8 @@ Message Authentification Codes (MAC) ermoeglichen zusaetzlich die Verifikation d
 
 Funktion h, die
 
-1. Kompression: h bildet Eingaben mit bel. Laenge auf Ausgabewerte fester Bitlaenge ab
-2. Einfacheit der Berechung
+1. Kompression: h bildet Eingaben mit bel. Länge auf Ausgabewerte fester Bitlänge ab
+2. Einfachheit der Berechnung
 
 ## Was ist ein kryptographische Hashfunktion?
 
@@ -56,18 +56,18 @@ Berechnung Prüfsumme aus beiden Werten (den MAC)
 Salt:
 
 * Passwort wird mit Salt zusammen gehasht
-* Salt eindeutig fuer jeden Account
+* Salt eindeutig für jeden Account
 * Nicht unbedingt geheim
 
 Pepper:
 
-* Zufaellige Zeichenkette
+* Zufällige Zeichenkette
 * Nicht in Passwort Datenbank gespeichert
 * Hardcoded im System oder Config Datei
 
 ## Was ist sind Rainbow Tables?
 
-* Ansatz: Alle Passwort Hashes speichern (Problem Speichergroesse)
+* Ansatz: Alle Passwort Hashes speichern (Problem Speichergröße)
 * Definiere Ketten aus Hash- und Reduzierfunktionen und speichere nur den Anfangs- und Endwert
 
 ## Was sind die Schritte bei einem Rainbow Table?
@@ -85,19 +85,19 @@ Pepper:
 
 ## Wie funktioniert das AES Verfahren?
 
-1. Schluesselerweiterung
+1. Schlüsselerweiterung
 2. Initial Round
 3. Main Rounds (Kombination aus Substitution und Permutation)
 4. Final Rounds
 5. Output
 
-## Was sind Moeglichkeiten fuer Kryptoanalyse bei symmetrischen Verfahren?
+## Was sind Möglichkeiten für Kryptoanalyse bei symmetrischen Verfahren?
 
 1. Brute-Force
-2. Known Cipher Text
-3. Suche anhand bekannter Klartext-Schluesseltext Paare
-4. Analyse auf Basis gewaehlter Klartexte
-5. Gewaehler Schluesseltexte
+2. Analyse mit bekannten Hashwert
+3. Suche anhand bekannter Klartext-Schlüsseltext Paare
+4. Analyse auf Basis gewählter Klartexte
+5. Gewählter Schlüsseltexte
 6. Statistische Angriffe
 
 ## Was ist das Kerckhoffs'sche Prinzip?
@@ -106,27 +106,27 @@ Die Sicherheit eines (symmetrischen) Verschlüsselungsverfahrens muss auf der Ge
 
 ## Was sind die Ziele von asymmetrischen Chiffren?
 
-* Einfache Erzeugung von Schluesselpaaren
-* Veroeffentlichung von Schluesseln soll moeglich sein
-* Keine Ableitung des privaten Schluessels
-* Zielabhaengige Verschluesselung von Daten
+* Einfache Erzeugung von Schlüsselpaaren
+* Veröffentlichung von Schlüsseln soll möglich sein
+* Keine Ableitung des privaten Schlüsseln
+* Zielabhängige Verschlüsselung von Daten
 * Sicherung der Vertraulichkeit der Daten
 
 ## Was sind die schritte bei RSA?
 
-1. Schluesselpaar generieren
-2. Verschluesselung
-3. Entschluesselung
+1. Schlüsselpaar generieren
+2. Verschlüsselung
+3. Entschlüsselung
 
-## Wie werden bei RSA Schluessel erzeugt?
+## Wie werden bei RSA Schlüssel erzeugt?
 
 1. Wahl eines RSA-Modulus n = p * q (p, q prim)
 2. Berechnung der Eulerischen Phi-Funktion von n
 3. Finde oeffentlichen Exponenten e, sodass
     * 1 < e < phi(n)
     * ggt(e,phi(n)) = 1
-    * Dann: (n,e) ist der oeffentliche Schluessel
-4. Erzeugung des privaten Exponenten e*d = mod phi(n), dann (n,d) privater Schlüssel
+    * Dann: (n,e) ist der oeffentliche Schlüssel
+4. Erzeugung des privaten Exponenten e*d = 1 mod phi(n), dann (n,d) privater Schlüssel
 
 ## Wie wird RSA verschlüsselt/entschlüsselt?
 
@@ -138,7 +138,7 @@ Die Sicherheit eines (symmetrischen) Verschlüsselungsverfahrens muss auf der Ge
 dann
 
 1. Berechnung m = c^d mod n
-2. Text rück umwandeln
+2. Text umwandeln
 
 ## Was sind Angriffe auf RSA?
 
@@ -148,16 +148,16 @@ dann
 
 ## Was ist der Ablauf bei einem Diffie-Hellman Schlüsselaustausch?
 
-1. Austausch von q prim, a primite Wurzel von q
+1. Austausch von q prim, a primitive Wurzel von q
 2. Bob & Alice definieren private Schlüssel u, w
 3. Austausch von X_Bob = a^u mod q und X_Alice = a^w mod q
 4. Alice und Bob berechnen:
     * K_session = (X_Alice)^u mod q
     * K_session = (X_Bob)^w mod q
 
-## Was ist prolematisch an Diffie-Hellman?
+## Was ist problematisch an Diffie-Hellman?
 
-* Keine Authentizitaet gewaehrleitet
+* Keine Authentizität gewährleistet
 * Loesung: Wechselseitige Authentifizierung anhand von Zertifikaten
 
 ## Was sind Anforderungen an Signaturen?
@@ -171,8 +171,8 @@ dann
 
 ## Was ist eine Replay Attacke?
 
-* Angriff auf Authentizitaet einer Nachricht
-* Angreifer sendet aufgezeichnete Daten nochmals an den Empfaenger und kann so die Authentizitaet der Nachricht angreifen
+* Angriff auf Authentizität einer Nachricht
+* Angreifer sendet aufgezeichnete Daten nochmals an den Empfänger und kann so die Authentizität der Nachricht angreifen
 * Loesung: Zeitstempel
 
 ## Was ist Public Key Infrastructure?
@@ -186,29 +186,29 @@ A PKI consists of:
 * Certificate policy stating the PKI's requirements concerning its procedures. Its purpose is to allow outsiders to analyze the PKI's trustworthiness.
 
 
-## Was ist Authentizitaet?
+## Was ist Authentizität?
 
-* ist die Echtheit bzw. Glaubwuerdigkeit, die anhand einer eindeutigen Identitaet bzw. charakteristischen Merkmalen ueberprueft wird
+* ist die Echtheit bzw. Glaubwürdigkeit, die anhand einer eindeutigen Identität bzw. charakteristischen Merkmalen überprüft wird
 
 ## Was ist Authentisierung?
 
-* ist der Nachweis der Identitaet eines Subjekts
+* ist der Nachweis der Identität eines Subjekts
 
 ## Was ist Authentifikation?
 
-* ist die Ueberpruefung einer behaupteten Authentisierung mit geeigneten Massnahmen
-* drei Faelle:
+* ist die überprüfung einer behaupteten Authentisierung mit geeigneten Massnahmen
+* drei Fälle:
   1. Authentifikation des Datenursprungs
   2. Benutzerauthentifikation
   3. Beidseitige Authentifikation
 
-## Was sind Eigenschafte von Authentifikationsverfahren?
+## Was sind Eigenschaften von Authentifikationsverfahren?
 
 * Something you have, something you know, something you are, somewhere you are
 
 ## Was ist der Unterschied zwischen Authentifizierung und Authorisierung?
 
-* Authentifizierung = verifiziert die Identitaet einer Person/Systems
+* Authentifizierung = verifiziert die Identität einer Person/Systems
 * Authorisierung = Genehmigung zur Einzelfunktion eines Systems
 
 ## Was ist das Challenge-Response Verfahren (symmetrisch)?
@@ -238,7 +238,7 @@ Frage/Antwort Protokoll, nur zur Authentifikation
 
 ## Was sind die Schritte im S/Key Verfahren?
 
-verkettete Hashfunktionionen
+verkettete Hashfunktionen
 
 Phase 1: Initialisierungsphase (s=Passwort, k=Seed-Wert), dann
 
@@ -276,7 +276,7 @@ Fingerabdruck, Retina/Iris Muster, Handvenen, Gesichtserkennung, Handgeometrie, 
 * ROIs zB Ridge Endings, Bifurcations
 * Authentifikation durch Extraktion der Merkmale
 
-##  Was sind bei Kerberos Realsm, Principals und Tickets?
+## Was sind bei Kerberos Realms, Principals und Tickets?
 
 * Realm = Administrative Domäne (e.g. Domainname in Capital)
 * Principal = Eindeutiger Indentifizierer (alice/admin@REALM)
@@ -297,7 +297,7 @@ Fingerabdruck, Retina/Iris Muster, Handvenen, Gesichtserkennung, Handgeometrie, 
 5. Application Request mit mit Authenticator
     * Application Response
 
-## How the Kerberos architecture work?
+## Wie funktioniert die Kerboros Architektur?
 
 1. A client wants to access a server over the network. The client first requests a ticket from the Authentication Server (AS).
 2. The AS verifies the client's identity and, if it is valid, generates a ticket-granting ticket (TGT) that contains information about the client, a session key, and a ticket-granting service (TGS) session key. The TGT is encrypted using the client's password as the key.
@@ -311,7 +311,7 @@ Fingerabdruck, Retina/Iris Muster, Handvenen, Gesichtserkennung, Handgeometrie, 
 
 * AS, TGS, Application müssen zeitsynchron sein
 * Passwort bestimmt Sicherheitslevel
-* Keine Inegritätsprüfung der Nachrichten
+* Keine Integritätsprüfung der Nachrichten
 
 ## Was sind die Kernkomponenten bei Shibboleth?
 
@@ -334,12 +334,12 @@ Fingerabdruck, Retina/Iris Muster, Handvenen, Gesichtserkennung, Handgeometrie, 
 9. Freigegebene Userdaten
 10. Loginvorgang erfolgreich
 
-Welche Begriffe sind Teil der OAuth 2.0 Terminologie?
+## Welche Begriffe sind Teil der OAuth 2.0 Terminologie?
 
 * Ressource Server (Dienst, der die geschützten Daten enthält)
 * Ressource Owner (Org Einheit, der die Daten gehören)
 * Client/Application (im Namen des Resource Owner zugreifende Anwendung)
-    * Public/confidential Client
+  * Public/confidential Client
 * Authorization Server (Dienst, dem der RS vertraut, um Clients zu authorisieren)
 * Authorization Code (Einmaliges Zwischengeheimnis für Client, um AT und RT zu erhalten)
 * Access Token (Geheimnis für den Zugriff auf die API)
@@ -400,9 +400,9 @@ Verbund von physischen Netzwerkgeräten, die sich ein gemeinsames Übertragungsm
 
 ## Was ist ein Bridge?
 
-* Verbindet 2 physische Netze miteinander durch 2 Asnchlüsse
+* Verbindet 2 physische Netze miteinander durch 2 Anschlüsse
 * Signale werden als Frames interpretiert
-* Leiter Frames nur bei Bedarf weiter
+* Leitet Frames nur bei Bedarf weiter
 
 ## Was ist ein L2-Switch?
 
@@ -411,7 +411,7 @@ Verbund von physischen Netzwerkgeräten, die sich ein gemeinsames Übertragungsm
 
 ## Was ist ein Router?
 
-* Netzwerkgerät zur Weiterleitung von Datenpacketen zwischen logischen Netzwerken
+* Netzwerkgerät zur Weiterleitung von Datenpaketen zwischen logischen Netzwerken
 * i.d.R. LAN und WLAN
 
 ## Was ist ein L3-Switch
@@ -420,13 +420,13 @@ Verbund von physischen Netzwerkgeräten, die sich ein gemeinsames Übertragungsm
 
 ## Was sind Layer 2 Aufgaben?
 
-* Ver/entpacken ovn Paketen aus der Vermittlungsschicht
+* Ver-/entpacken von Paketen aus der Vermittlungsschicht
 * Fehlererkennung der Bitübertragung durch Prüfsummen
 * Bereitstellen der Media Access Control (MAC) Adressen (FF:FF:FF:FF:FF:FF) (6 Bytes)
 
 ## Was sind die Aufgaben eines L2-Switches?
 
-* erlernen lokale MAC Adressen (MAX <-> Port)
+* erlernen lokale MAC Adressen (MAC <-> Port)
 * Paketweiterleitung nur an den betroffenen Ports aus Tabelle oder alle (zb falls MAC nicht bekannt oder Broadcasting Frame)
 * Forwarding durch Store-and-Forward
 
@@ -448,22 +448,22 @@ Verbund von physischen Netzwerkgeräten, die sich ein gemeinsames Übertragungsm
 ## Was ist ARP-Spoofing?
 
 1. Lauschen nach IP- und MAC-Adresse des Opfers
-2. Angreifer sendet Frame mit ARP Reply mit korrekter Absender und Empfaenger MAC, aber mit manipulierter IP-Adresse (boradcast)
-3. Das ARP Cache wird mit den manipulierten Adressen gefuellt
+2. Angreifer sendet Frame mit ARP Reply mit korrekter Absender und Empfänger MAC, aber mit manipulierter IP-Adresse (boardcast)
+3. Das ARP Cache wird mit den manipulierten Adressen gefüllt
 4. Das Opfer liest die manipulierte IP-Adresse aus
 
 
 ## Wie kann man sich vor ARP Spoofing schützen?
 
 * Statische ARP
-* Port-Sicherheit: Konfigurieren der Portsicherheit auf Netzwerk-Switches, um die Anzahl der MAC-Adressen zu begrenzen, die einem bestimmten Port zugeordnet werden können. Nicht autorisierte Geräte koennen keine falschen ARP-Nachrichten senden.
-* Netzwerksegmentierung: Implementierung einer Netzwerksegmentierung (VLANs) fuer isolierte Subnetze zu schaffen
+* Port-Sicherheit: Konfigurieren der Portsicherheit auf Netzwerk-Switches, um die Anzahl der MAC-Adressen zu begrenzen, die einem bestimmten Port zugeordnet werden können. Nicht autorisierte Geräte können keine falschen ARP-Nachrichten senden.
+* Netzwerksegmentierung: Implementierung einer Netzwerksegmentierung (VLANs) für isolierte Subnetze zu schaffen
 
 ## In welchem Layer findet eine ARP Attacke statt?
 
-Layer 2
+Layer 2. Weil API Adresse nach MACs aufgelöst werden.
 
-## Was sind Layer 3 Eigenschaften?
+## Was sind Layer 3 Aufgaben?
 
 * Fragmentierung der Daten aus der Transport Schicht
 * Detektion von L3-Datagrams aus der Sicherungsschicht
@@ -474,7 +474,7 @@ Layer 2
 ## Was sind die Eigenschaften von Internet Protokoll (IP)
 
 * Best-Effort-Delivery
-* Es muss keine Verbindung zwischen Sender und Empfaenger vor Absenden aufgebaut werden
+* Es muss keine Verbindung zwischen Sender und Empfänger vor Absenden aufgebaut werden
 * Keine Garantie der Paketzustellung
 * Basiert auf (stateless) IP-Paketen/Datagrams 
 
@@ -498,7 +498,7 @@ Layer 2
 ## Was ist IP-Spoofing?
 
 * Idee: Manipulation der Source IP eines IP-Paketes
-* Basis fuer DDoS/DRDoS und Spoofing Angriffe (MITM)
+* Basis für DDoS/DRDoS und Spoofing Angriffe (MITM)
 * Sender-IP auf dem Frame wird manipuliert
 
 ## Was ist der Unterschied zwischen DDoS und DDRoS?
@@ -512,7 +512,7 @@ Layer 2
 ## Was sind die Aufgaben von Layer 4?
 
 * Transportschicht
-* Bereitstellung von Ende-zu-Ende Protokollen fuer Internet Kommunikation
+* Bereitstellung von Ende-zu-Ende Protokollen für Internet Kommunikation
 * Ver/entpacken der Daten aus Anwendungsschicht in Segmenten
 * Adressierung dre Prozesse eines Hosts durch zb Ports
 * Optional:
@@ -532,28 +532,28 @@ Auswahl:
 
 ## Was sind Eigenschaften des Transmission Control Protocol?
 
-* Idee: Sicherer Transport von Daten durch unzuverlaessige Netzwerke
+* Idee: Sicherer Transport von Daten durch unzuverlässige Netzwerke
 * RFC
-* Zuverlaessig
-* Verbindungsorientiert (logische Ende-zu-Ende Verbindung), 3-Wege Handshake fuer Verbindung
-* TCP transportiert Bytestroeme hoeherer Layer in Segementen
+* Zuverlässig
+* Verbindungsorientiert (logische Ende-zu-Ende Verbindung), 3-Wege Handshake für Verbindung
+* TCP transportiert Byteströme hoeherer Layer in Segmenten
 * Basierend auf dem IP (mit Erweiterung durch Ports)
 
 ## Wie ist ein TCP Paket aufgebaut?
 
-* Header, Flags, Pruefsumme
+* Header, Flags, Prüfsumme
 * Flags (URG, ACK, PSH, RST, SYN, FIN)
 
-## Welche Zustaende gibt es im TCP Zustandsautomat?
+## Welche Zustände gibt es im TCP Zustandsautomat?
 
-* TCB = Transmissin Control Block (Datenerhaltung: Status pro Verbindung)
+* TCB = Transmission Control Block (Datenerhaltung: Status pro Verbindung)
 * Anzeige: netstat --ip
 * Verbindungsaufbau 3-Way-Handshake 
 
 ## Was ist ein SYN Flood Attack?
 
 * Angriff auf Layer 4 des TCP
-* Idee: Ueberlastung des Rechners durch vielfache parallele Intitiierung des 3-Way-Handshakes druch mehrere SYN-Segmente, erzeugt Half Open Connections
+* Idee: Überlastung des Rechners durch vielfache parallele Initiierung des 3-Way-Handshakes durch mehrere SYN-Segmente, erzeugt Half Open Connections
 * SYN = Synchronize Flag zur Initiierung eines Verbindungsaufbaus
 * Oft mit DDoS
 
@@ -561,19 +561,19 @@ Auswahl:
 
 * SYN-Cookies: Server schickt SYN-ACK und loescht TCB
 * TCB Speicher erweitern
-* Recycling von alten Speichereintraegen
-* ERhoehung der Redundanzen durch Anycastadressierung und Multiplikation von Diensten
+* Recycling von alten Speichereinträgen
+* Erhöhung der Redundanzen durch Anycastadressierung und Multiplikation von Diensten
 
-## Was sind zum Aufdecken von Luecken in Software?
+## Was sind zum Aufdecken von Lücken in Software?
 
-Fehler: Logik Fehler, Speicherlecks, Formatstring-Angriffe, Pufferueberlaeufe
+Fehler: Logik Fehler, Speicherlecks, Formatstring-Angriffe, Pufferüberläufe
 
 Methode:
 * Statische Codeanalyse
 * Dynamische Codeanalyse
 * Fuzzing
 
-## Wie funktioniert die Programmausfuehrung auf x86-Systemen?
+## Wie funktioniert die Programmausführung auf x86-Systemen?
 
 1. Fetch: The x86 instruction pointer (IP) is used to fetch the next instruction from memory. The instruction is then loaded into the instruction register (IR).
 2. Decode: The instruction in the IR is decoded by the instruction decoder, which determines what operation the instruction represents.
@@ -586,7 +586,7 @@ Methode:
 
 ASLR = Address Space Layout Randomization
 
-* Adressbereiche fuer Programme werden zufaellig zugewiesen, daher nur schwer vorhersehbar
+* Adressbereiche für Programme werden zufällig zugewiesen, daher nur schwer vorhersehbar
 
 ## Was ist das Prinzip von Stack Canaries?
 
@@ -597,11 +597,11 @@ Technik gegen Bufferoverflow-Angriffe
 
 ## Was ist Heap Spraying?
 
-* Methode fuer clientseitige Angriffe gegen Webbrowser
+* Methode für clientseitige Angriffe gegen Webbrowser
 * Schadcode: Sehr grosser NOP-Block (Landezone) + Code
-* Verhaeltnis 100:1
-* Solaneg in dem NOP-Block gelandet wird, wird der Schadcode ausgefuehrt
-* Spraying: Platzierung von sehr vielen Instanzen des Schadcodes ueber grosse Speicherbereiche hinweg, dadruch grosse Wahrscheinlichkeit, auf einem NOP-Sled zu laden
+* Verhältnis 100:1
+* Solange in dem NOP-Block gelandet wird, wird der Schadcode ausgeführt
+* Spraying: Platzierung von sehr vielen Instanzen des Schadcodes über grosse Speicherbereiche hinweg, dadurch grosse Wahrscheinlichkeit, auf einem NOP-Sled zu laden
 
 Ablauf:
 
@@ -610,27 +610,27 @@ Ablauf:
 
 ## Was ist der Domain Name Service?
 
-* Moeglichkeit, Namen mit IP Adressen zu verknuepfen
-* Hierarchischer Dienst fuer Namensgebung, Namensaufloesung (Forward Lookup), IP-Aufloesung (Reverse Lookup)
-* Client/Server Anwendung mit serverseitiger Cache-Funktionalitaet
+* Moeglichkeit, Namen mit IP Adressen zu verknüpfen
+* Hierarchischer Dienst für Namensgebung, Namensaufloesung (Forward Lookup), IP-Aufloesung (Reverse Lookup)
+* Client/Server Anwendung mit serverseitiger Cache-Funktionalität
 * Namensaufloesung erfolgt entsprechend hierarchisch von der Wurzel
 
 ## Was ist ein Fully Qualified Domain Name (FQDN)?
 
-Verkettung aller Labels einer Domaene 
+Verkettung aller Labels einer Domäne 
 
 ## Was macht ein DNS Server?
 
 DNS Server verwaltet 2 Datenbanken:
 
-* Forward-Zone Datenbank (Domainnamen -> IP-Adresseen)
+* Forward-Zone Datenbank (Domainnamen -> IP-Adressen)
 * Reverse-Zone Datenbank (umgekehrt)
-* Keine Ueberpruefung der Konsistenz der Datenbaenke
+* Keine überprüfung der Konsistenz der Datenbänke
 
 * DNS-Anfrage wird an Port 53 des DNS-Servers gesendet
-* basiert auf unzuverlaessigem UDP (unbeantwortete Anfragen werden wiederholt)
+* basiert auf unzuverlässigem UDP (unbeantwortete Anfragen werden wiederholt)
 
-## Wie kann man mit DNS Domainnamen oder IP-Adressen uebersetzen?
+## Wie kann man mit DNS Domainnamen oder IP-Adressen übersetzen?
 
 * nslookup
 
@@ -639,13 +639,13 @@ DNS Server verwaltet 2 Datenbanken:
 1. Anfrage an Server
 2. Falls IP-Adresse im Cache fertig, sonst rekursiv weiter suchen
 
-## Wie wird CIA bei DNS gewaehrleistet?
+## Wie wird CIA bei DNS gewährleistet?
 
 * Confidentiality: Nicht wichtig, das es um das verbreiten von Information geht
-* Integrity: Sicherung der Datenintegritaet sehr wichtig (DNS Spoofing, Umleitung auf Systeme des Angreifers)
-* Availablity: DNS-Infrastruktur wichtig fuer fast alle Internet Kommunikation
+* Integrity: Sicherung der Datenintegrität sehr wichtig (DNS Spoofing, Umleitung auf Systeme des Angreifers)
+* Availablity: DNS-Infrastruktur wichtig für fast alle Internet Kommunikation
 
-## Was gibt es fuer Angriffe auf die DNS Infrastruktur?
+## Was gibt es für Angriffe auf die DNS Infrastruktur?
 
 * Angriffe auf Infrastruktur des Anbieters
 * Angriff auf TLD-Betreiber
@@ -654,7 +654,7 @@ DNS Server verwaltet 2 Datenbanken:
 
 ## Was ist DNS Spoofing?
 
-* Idee: Veraernderung eines DNS-Eintrages um Opfer an komprimitierten Server/Dienst zu senden
+* Idee: Veränderung eines DNS-Eintrages um Opfer an komprimitierten Server/Dienst zu senden
 * Manipulation der Hosts-Datei eines Rechners durch Malware/Bots
 
 ## Was ist klassisches DNS Spoofing?
@@ -667,7 +667,7 @@ zB ARP Cache Poisoning (MITM Angriff)
 
 ## Was sind die Schritte bei klassischem DNS Spoofing?
 
-1. Opfer fragt nach Domainnameaufloesung bei DNS Server
+1. Opfer fragt nach Domainnameauflösung bei DNS Server
 2. Angreifer lauscht nach Aufloesung
 3. Angreifer leitet Antwort um und manipuliert aufgeloeste IP-Adresse
 
@@ -676,39 +676,39 @@ zB ARP Cache Poisoning (MITM Angriff)
 Manipulation des (einzelnen) DNS Caches durch Flutung von Antworten mit Erraten der korrekten TXID
 
 * Layer 3 Zugriff
-* Einschraenkung: Angriff zum richtigen Zeitpunkt, richtiger UDP Quellports, richtige TXID
+* Einschränkung: Angriff zum richtigen Zeitpunkt, richtiger UDP Quellports, richtige TXID
 
 ## Was sind die Schritte beim DNS Cache Poisoning?
 
-1. Opfer fragt nach Domainnameaufloesung bei DNS Server
-2. DNS Server loest auf und schicht Antwort an ersten DNS Server
-3. Angreifer fuehrt massiv paralleles Erraten der TXID durch
+1. Opfer fragt nach Domainnameauflösung bei DNS Server
+2. DNS Server löst auf und schickt Antwort an ersten DNS Server
+3. Angreifer führt massiv paralleles Erraten der TXID durch
 4. DNS Server cachet manipulierte IP-Adresse
-5. Opfer erhaelt die IP-Adresse des Angreifers
+5. Opfer erhält die IP-Adresse des Angreifers
 
 ## Wie funkioniert ein DNS Angriff mit Kaminsky Methode?
 
 1. Sending a query: The attacker first sends a query to a target DNS resolver for a specific domain name.
 2. Forging responses: The attacker then sends a large number of forged responses to the target DNS resolver, claiming to be the authoritative DNS server for the same domain name. These responses contain incorrect mapping information, such as mapping a well-known domain name to the IP address of a malicious server.
-3. Overwriting cached information: The target DNS resolver, due to the way it was designed to handle multiple responses to the same query, may cache the incorrect mapping information provided by the attacker.
+3. Overwriting cached information: The target DNS resolver, dü to the way it was designed to handle multiple responses to the same query, may cache the incorrect mapping information provided by the attacker.
 4. Redirecting users: When a client computer sends a request to the target DNS resolver for the domain name, the resolver will return the incorrect IP address provided by the attacker, causing the client to be redirected to the attacker's malicious server.
 
 
 ## Was sind Schutzmechanismen gegen DNS-Spoofing?
 
-* ARP Cache Poisoning Detektions/Schutzwerkzeuge (IP->MAC Aenderungen werden beobachtet)
+* ARP Cache Poisoning Detektions/Schutzwerkzeuge (IP->MAC Änderungen werden beobachtet)
 * Implementierung von zertifikatsbasierten Anwendungen (extern signiert)
 * Nicht sequentielle Generierung der TXID
-* Einsat von verschluesselter Kommunikation zwischen Client und DNS-Server
+* Einsatz von verschlüsselter Kommunikation zwischen Client und DNS-Server
 * Implementierung von DDNSec Standard (vergl. mit einer PKI)
 
 ## Was ist DNSec?
 
-* Ziel: Authentizitaet und Interitaet von DNS-Eintraegen
+* Ziel: Authentizität und Integrität von DNS-Einträgen
 * Abwehr DNS-Cache Poisoning
-* Zwei Schluesselpaare pro Domaene:
-  * Key-Signing-Key: Bestehend aus einem privaten und oeffentlichen Schluessel, wird zum signieren anderer Schluessel verwendet
-  * Zone-signing-Key: Besteht aus einem privaten und oeffentlichen Schluessel, kann autonom von den lokalen Administratoren einer Domaene verwaltet werden
+* Zwei Schlüsselpaare pro Domäne:
+  * Key-Signing-Key: Bestehend aus einem privaten und oeffentlichen Schlüssel, wird zum signieren anderer Schlüssel verwendet
+  * Zone-signing-Key: Besteht aus einem privaten und oeffentlichen Schlüssel, kann autonom von den lokalen Administratoren einer Domäne verwaltet werden
 
 ## Wie funktioniert DNSSec?
 
