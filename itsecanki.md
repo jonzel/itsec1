@@ -20,7 +20,12 @@ Modification Detection Codes (MDC) sind der kryptographische Fingerabdruck einer
 
 ## Was sind Nachrichtenauthentisierungswerte?
 
-Message Authentification Codes (MAC) ermoeglichen zusaetzlich die Verifikation der Authentizitaet einer Nachricht
+Message Authentification Codes (MAC) ermoeglichen zusaetzlich die Verifikation der Authentizitaet einer Nachricht`
+
+## Was ist der Unterschied zwischen MDCs und MACs?
+
+* MDCs werden verwendet, um Änderungen an einer Nachricht zu erkennen
+* MACs verwendet werden, um den Ursprung einer Nachricht zu authentifizieren
 
 ## Was ist eine Hashfunktion?
 
@@ -39,7 +44,12 @@ Hashfunktion h, die
 
 ## Was sind die Eigenschaften eines Alg. zur MAC-Berechnung?
 
-TODO
+MAC-Algorithmen erfordern zwei Eingabeparameter:
+
+1. Die zu schützenden Daten
+2. Einen geheimen Schlüssel
+
+Berechnung Prüfsumme aus beiden Werten (den MAC)
 
 ## Wie funktioniert Passwort Speicherung mit Salt/Pepper
 
@@ -67,9 +77,19 @@ Pepper:
 3. Hashwert ist in RT => Klartext kann berechnet werden
 4. Hashwert ist nicht in RT => Eine Iteration aus Hash + Reduce anwenden, Ergebnis in RT? Falls nein, erneute Iteration
 
+## Was ist das AES Verfahren?
+
+* AES  = Advanced Encryption Standard
+* Symmetrisch
+* Blockgroesse 128 bits
+
 ## Wie funktioniert das AES Verfahren?
 
-TODO
+1. Schluesselerweiterung
+2. Initial Round
+3. Main Rounds (Kombination aus Substitution und Permutation)
+4. Final Rounds
+5. Output
 
 ## Was sind Moeglichkeiten fuer Kryptoanalyse bei symmetrischen Verfahren?
 
@@ -82,7 +102,7 @@ TODO
 
 ## Was ist das Kerckhoffs'sche Prinzip?
 
-TODO
+Die Sicherheit eines (symmetrischen) Verschlüsselungsverfahrens muss auf der Geheimhaltung des Schlüssels beruhen anstatt auf der Geheimhaltung des Verschlüsselungsalgorithmus.
 
 ## Was sind die Ziele von asymmetrischen Chiffren?
 
@@ -157,7 +177,13 @@ dann
 
 ## Was ist Public Key Infrastructure?
 
-TODO
+A PKI consists of:
+
+* Certificate authority (CA) that stores, issues and signs the digital certificates;
+* Registration authority (RA) which verifies the identity of entities requesting their digital certificates to be stored at the CA;
+* Central directory—i.e., a secure location in which keys are stored and indexed;
+* Certificate management system managing things like the access to stored certificates or the delivery of the certificates to be issued;
+* Certificate policy stating the PKI's requirements concerning its procedures. Its purpose is to allow outsiders to analyze the PKI's trustworthiness.
 
 
 ## Was ist Authentizitaet?
@@ -421,11 +447,21 @@ Verbund von physischen Netzwerkgeräten, die sich ein gemeinsames Übertragungsm
 
 ## Was ist ARP-Spoofing?
 
-TODO
+1. Lauschen nach IP- und MAC-Adresse des Opfers
+2. Angreifer sendet Frame mit ARP Reply mit korrekter Absender und Empfaenger MAC, aber mit manipulierter IP-Adresse (boradcast)
+3. Das ARP Cache wird mit den manipulierten Adressen gefuellt
+4. Das Opfer liest die manipulierte IP-Adresse aus
+
 
 ## Wie kann man sich vor ARP Spoofing schützen?
 
-TODO
+* Statische ARP
+* Port-Sicherheit: Konfigurieren der Portsicherheit auf Netzwerk-Switches, um die Anzahl der MAC-Adressen zu begrenzen, die einem bestimmten Port zugeordnet werden können. Nicht autorisierte Geräte koennen keine falschen ARP-Nachrichten senden.
+* Netzwerksegmentierung: Implementierung einer Netzwerksegmentierung (VLANs) fuer isolierte Subnetze zu schaffen
+
+## In welchem Layer findet eine ARP Attacke statt?
+
+Layer 2
 
 ## Was sind Layer 3 Eigenschaften?
 
@@ -436,6 +472,11 @@ TODO
 * Forwarding: Weiterleitung zwischen logischen Netzen
 
 ## Was sind die Eigenschaften von Internet Protokoll (IP)
+
+* Best-Effort-Delivery
+* Es muss keine Verbindung zwischen Sender und Empfaenger vor Absenden aufgebaut werden
+* Keine Garantie der Paketzustellung
+* Basiert auf (stateless) IP-Paketen/Datagrams 
 
 ## Was sind die Adressierungsmöglichkeiten bei IP?
 
@@ -500,7 +541,8 @@ Auswahl:
 
 ## Wie ist ein TCP Paket aufgebaut?
 
-TODO
+* Header, Flags, Pruefsumme
+* Flags (URG, ACK, PSH, RST, SYN, FIN)
 
 ## Welche Zustaende gibt es im TCP Zustandsautomat?
 
@@ -533,7 +575,12 @@ Methode:
 
 ## Wie funktioniert die Programmausfuehrung auf x86-Systemen?
 
-TODO
+1. Fetch: The x86 instruction pointer (IP) is used to fetch the next instruction from memory. The instruction is then loaded into the instruction register (IR).
+2. Decode: The instruction in the IR is decoded by the instruction decoder, which determines what operation the instruction represents.
+3. Operand Fetch: The instruction decoder fetches the operands required for the operation, such as the source and destination registers, from the register file.
+4. Execution: The execution unit performs the operation specified by the instruction, using the operands from the register file.
+5. Writeback: The result of the operation is written back to the register file, or to memory if the result is to be stored there.
+6. Repeat: The process is repeated for each instruction in the program, until the end of the program is reached or an error occurs.
 
 ## Was sind Schutzmassnahmen gegen Bufferoverflow?
 
@@ -543,7 +590,10 @@ ASLR = Address Space Layout Randomization
 
 ## Was ist das Prinzip von Stack Canaries?
 
-TODO 
+Technik gegen Bufferoverflow-Angriffe
+
+1. Ablage von eindeutigem Wert (Canary) vor der Return Adresse einer Funktion auf dem Stack
+2. Bei Return wird der Canary-Wert überprüft, Canary anders => Es gab Bufferoverflow (Programm wird beendet)
 
 ## Was ist Heap Spraying?
 
@@ -586,7 +636,8 @@ DNS Server verwaltet 2 Datenbanken:
 
 ## Wie funktioniert eine DNS Abfrage?
 
-TODO
+1. Anfrage an Server
+2. Falls IP-Adresse im Cache fertig, sonst rekursiv weiter suchen
 
 ## Wie wird CIA bei DNS gewaehrleistet?
 
@@ -637,7 +688,11 @@ Manipulation des (einzelnen) DNS Caches durch Flutung von Antworten mit Erraten 
 
 ## Wie funkioniert ein DNS Angriff mit Kaminsky Methode?
 
-TODO
+1. Sending a query: The attacker first sends a query to a target DNS resolver for a specific domain name.
+2. Forging responses: The attacker then sends a large number of forged responses to the target DNS resolver, claiming to be the authoritative DNS server for the same domain name. These responses contain incorrect mapping information, such as mapping a well-known domain name to the IP address of a malicious server.
+3. Overwriting cached information: The target DNS resolver, due to the way it was designed to handle multiple responses to the same query, may cache the incorrect mapping information provided by the attacker.
+4. Redirecting users: When a client computer sends a request to the target DNS resolver for the domain name, the resolver will return the incorrect IP address provided by the attacker, causing the client to be redirected to the attacker's malicious server.
+
 
 ## Was sind Schutzmechanismen gegen DNS-Spoofing?
 
@@ -657,4 +712,8 @@ TODO
 
 ## Wie funktioniert DNSSec?
 
-TODO
+1. Key Generation: The first step is to generate a set of public and private keys. The public keys are stored in the DNS zone, while the private keys are kept secret.
+2. Signing: The domain owner uses their private key to sign the DNS records, creating a cryptographic signature for each record. The signed records are then published in the DNS zone.
+3. Resolution: When a client wants to look up a DNS record, it first queries the DNSSec-enabled DNS server. The server returns the requested record along with its digital signature.
+4. Validation: The client then uses the public key stored in the DNS zone to verify the signature. If the signature is valid, the client knows that the DNS record has not been tampered with and can be trusted.
+5. Cache: The client caches the validated DNS record and its signature, so it doesn't have to go through the validation process every time it needs to look up the same record.
