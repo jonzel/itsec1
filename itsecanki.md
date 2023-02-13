@@ -6,6 +6,43 @@
 * Integrity (Integrität): Sicherstellung der Unversehrtheit/Korrektheit der Information
 * Availablity (Verfügbarkeit): Dienste oder Daten gelten als verfügbar, wenn diese stets wie vorgesehen bereitgestellt werden koennen.
 
+## Was passiert im Layer 2 (Sicherungsschicht)?
+
+* Bündelung von Bitströmen zu Datenpakten (Frames)
+* Kontrollinformationen, Checksums zur Fehlerkontrole
+* Cyclic Redundancy Checks
+* Behandlung beschädigter, duplizierter oder verlorenen Frames
+
+## was passiert in Layer 3 (Netzwerkschicht)?
+
+* Vermittlung zwischen nicht direkt benachbarten Partnern
+* Routing (günstigsten Weg auswählen)
+* Erstellung von Abrechnungen (Paketzahlen usw.)
+
+## Auf welchem Layer arbeitet ein Repeater/Hub?
+
+* Layer 1 (OSI-Model)
+* Verbindet gleichartigen Medien auf Layer 1
+
+## Auf welchem Layer arbeitet eine Bridge?
+
+* Layer 2
+* Zwischen zwei physischen Netzen
+* Überwacht alle Layer 2 Frames und leitet nur bei Bedarf weiter
+
+## Auf welchem Layer arbeitet ein Switch?
+
+* Layer 2
+* Auf jedem Anschlussport wird eine Bridge mit Hub vorgeschaltet
+
+## Woraus besteht ein Layer 2 Ethernet Frame?
+
+* Präambel
+* Starting Frame Delimiter
+* Destination MAC
+* Source MAC
+* weitere Flags + Daten
+
 ## Was sind symmetrische krypographisches Algorithmen?
 
 Transformation von Eingabedaten durch einen spezifischen Algorithmus, der zum Ver-/Entschlüsseln den gleichen Schlüssel benutzt
@@ -20,7 +57,15 @@ Modification Detection Codes (MDC) sind der kryptographische Fingerabdruck einer
 
 ## Was sind Nachrichtenauthentisierungswerte?
 
-Message Authentification Codes (MAC) ermoeglichen zusätzlich die Verifikation der Authentizität einer Nachricht`
+Message Authentification Codes (MAC) ermoeglichen zusätzlich die Verifikation der Authentizität einer Nachricht
+
+## Was sind die Eigenschaften eines Algorithmus zur Berechnung von MACs?
+
+Familie von Funktionen h_k, die durch einen geheimen Schlüssel k parametrisiert werden und es gilt:
+
+1. Kompression
+2. Einfachheit der Berechnung
+3. Nichtübertragbarkeit von MACs 
 
 ## Was ist der Unterschied zwischen MDCs und MACs?
 
@@ -42,20 +87,10 @@ Hashfunktion h, die
 2. Unbestimmtbarkeit eines 2. Urbildes (Kollisionen finden)
 3. Kollisionsfreiheit
 
-## Was sind die Eigenschaften eines Alg. zur MAC-Berechnung?
-
-MAC-Algorithmen erfordern zwei Eingabeparameter:
-
-1. Die zu schützenden Daten
-2. Einen geheimen Schlüssel
-
-Berechnung Prüfsumme aus beiden Werten (den MAC)
-
 ## Wie funktioniert Passwort Speicherung mit Salt/Pepper
 
 Salt:
 
-* Passwort wird mit Salt zusammen gehasht
 * Salt eindeutig für jeden Account
 * Nicht unbedingt geheim
 
@@ -64,6 +99,8 @@ Pepper:
 * Zufällige Zeichenkette
 * Nicht in Passwort Datenbank gespeichert
 * Hardcoded im System oder Config Datei
+
+Passwort wird mit Salt und Pepper gehasht.
 
 ## Was ist sind Rainbow Tables?
 
@@ -76,6 +113,11 @@ Pepper:
 2. Hashwert liegt vor
 3. Hashwert ist in RT => Klartext kann berechnet werden
 4. Hashwert ist nicht in RT => Eine Iteration aus Hash + Reduce anwenden, Ergebnis in RT? Falls nein, erneute Iteration
+
+## Welche Betriebsarten von Blockchiffren gibt es?
+
+* Electronic Code Book Mode
+* Cipher Block Chaining Mode
 
 ## Was ist das AES Verfahren?
 
@@ -175,16 +217,20 @@ dann
 * Angreifer sendet aufgezeichnete Daten nochmals an den Empfänger und kann so die Authentizität der Nachricht angreifen
 * Loesung: Zeitstempel
 
-## Was ist Public Key Infrastructure?
+## Was ist sind die Elemente der Public Key Infrastructure?
 
-A PKI consists of:
+* Certificate Authority (CA)
+* Registration Authority (RA) (RA und CA sind das Trust Center)
+* Certificate Revocation Lists (Widerruf von Zertifikaten)
 
-* Certificate authority (CA) that stores, issues and signs the digital certificates;
-* Registration authority (RA) which verifies the identity of entities requesting their digital certificates to be stored at the CA;
-* Central directory—i.e., a secure location in which keys are stored and indexed;
-* Certificate management system managing things like the access to stored certificates or the delivery of the certificates to be issued;
-* Certificate policy stating the PKI's requirements concerning its procedures. Its purpose is to allow outsiders to analyze the PKI's trustworthiness.
+## Was sind die Schritt bei PKI?
 
+1. Erzeugen des öffentlich-privat Schlüsselpaares
+2. Zertifikatantrag einreichen
+3. Identität ausweisen
+4. Registration Officer erteilt Antragsfreigabe
+5. Veröffentlichung des Zertifikats
+6. Bereitstellung des Zertifikats
 
 ## Was ist Authentizität?
 
@@ -192,7 +238,7 @@ A PKI consists of:
 
 ## Was ist Authentisierung?
 
-* ist der Nachweis der Identität eines Subjekts
+* ist der Nachweis der Identität eines Subjekts (zb Personalausweis)
 
 ## Was ist Authentifikation?
 
@@ -461,7 +507,7 @@ Verbund von physischen Netzwerkgeräten, die sich ein gemeinsames Übertragungsm
 
 ## In welchem Layer findet eine ARP Attacke statt?
 
-Layer 2. Weil API Adresse nach MACs aufgelöst werden.
+Layer 2. Weil IP-Adressen nach MACs aufgelöst werden.
 
 ## Was sind Layer 3 Aufgaben?
 
@@ -470,13 +516,14 @@ Layer 2. Weil API Adresse nach MACs aufgelöst werden.
 * Bereitstellung logischer Adressen für Geräte
 * Routing: Selektion des besten Wegs für den Paketverlauf zwischen Routern oder L3-Switches
 * Forwarding: Weiterleitung zwischen logischen Netzen
+* Logischer Verbund
 
 ## Was sind die Eigenschaften von Internet Protokoll (IP)
 
 * Best-Effort-Delivery
 * Es muss keine Verbindung zwischen Sender und Empfänger vor Absenden aufgebaut werden
 * Keine Garantie der Paketzustellung
-* Basiert auf (stateless) IP-Paketen/Datagrams 
+* Basiert auf (stateless) IP-Paketen/Datagrams
 
 ## Was sind die Adressierungsmöglichkeiten bei IP?
 
@@ -582,7 +629,7 @@ Methode:
 5. Writeback: The result of the operation is written back to the register file, or to memory if the result is to be stored there.
 6. Repeat: The process is repeated for each instruction in the program, until the end of the program is reached or an error occurs.
 
-## Was sind Schutzmassnahmen gegen Bufferoverflow?
+## Was sind Schutzmassnahmen gegen Buffer-Overflow?
 
 ASLR = Address Space Layout Randomization
 
@@ -617,7 +664,7 @@ Ablauf:
 
 ## Was ist ein Fully Qualified Domain Name (FQDN)?
 
-Verkettung aller Labels einer Domäne 
+Verkettung aller Labels einer Domäne
 
 ## Was macht ein DNS Server?
 
@@ -686,13 +733,12 @@ Manipulation des (einzelnen) DNS Caches durch Flutung von Antworten mit Erraten 
 4. DNS Server cachet manipulierte IP-Adresse
 5. Opfer erhält die IP-Adresse des Angreifers
 
-## Wie funkioniert ein DNS Angriff mit Kaminsky Methode?
+## Wie funktioniert ein DNS Angriff mit Kaminsky Methode?
 
 1. Sending a query: The attacker first sends a query to a target DNS resolver for a specific domain name.
 2. Forging responses: The attacker then sends a large number of forged responses to the target DNS resolver, claiming to be the authoritative DNS server for the same domain name. These responses contain incorrect mapping information, such as mapping a well-known domain name to the IP address of a malicious server.
 3. Overwriting cached information: The target DNS resolver, dü to the way it was designed to handle multiple responses to the same query, may cache the incorrect mapping information provided by the attacker.
 4. Redirecting users: When a client computer sends a request to the target DNS resolver for the domain name, the resolver will return the incorrect IP address provided by the attacker, causing the client to be redirected to the attacker's malicious server.
-
 
 ## Was sind Schutzmechanismen gegen DNS-Spoofing?
 
@@ -702,7 +748,7 @@ Manipulation des (einzelnen) DNS Caches durch Flutung von Antworten mit Erraten 
 * Einsatz von verschlüsselter Kommunikation zwischen Client und DNS-Server
 * Implementierung von DDNSec Standard (vergl. mit einer PKI)
 
-## Was ist DNSec?
+## Was ist DNSSec?
 
 * Ziel: Authentizität und Integrität von DNS-Einträgen
 * Abwehr DNS-Cache Poisoning
